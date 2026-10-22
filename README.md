@@ -9,6 +9,9 @@ why, what the root cause turned out to be, and how the fix was verified.
 
 **Author:** Gyanendra Kandel · Hobart, Tasmania
 
+The lab has been running since September 2026. The documentation was kept in local files
+until now; this repository publishes it and is updated as the build continues.
+
 ---
 
 ## Contents
