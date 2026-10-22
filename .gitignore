@@ -1,0 +1,20 @@
+# Never commit disk images, ISOs or hypervisor state
+*.iso
+*.vdi
+*.vmdk
+*.vhd
+*.vhdx
+*.ova
+*.nvram
+*.sav
+
+# Office lock files and temporary documents
+~$*
+*.tmp
+*.docx
+*.xlsx
+
+# OS noise
+Thumbs.db
+desktop.ini
+.DS_Store
