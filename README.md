@@ -48,9 +48,10 @@ the lab network is entirely virtual and does not touch the home network at all.
 | Gateway | None. `LabNet` is isolated by design |
 | Internet | A second adapter on `DC01` using NAT, for updates and activation only |
 
+![Network design](diagrams/network-design-v1.png)
+
 Diagram source: [`diagrams/network-design-v1.drawio`](diagrams/network-design-v1.drawio), which
-opens in [draw.io](https://app.diagrams.net). A PNG export is added to `diagrams/` once the
-build is complete.
+opens in [draw.io](https://app.diagrams.net).
 
 ---
 
