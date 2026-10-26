@@ -95,16 +95,19 @@ is synced.
 - Lab design, network diagram and domain naming decision
 - `DC01` built and Windows Server 2025 Standard (Desktop Experience) installed
 - `WIN11-01` built with UEFI, Secure Boot and TPM 2.0 enabled
+- `DC01` on static `192.168.50.10`, AD DS installed and promoted for `kandel-lab.internal`
+- DNS serving the domain, with the domain controller's records registered correctly
+- DHCP scope `192.168.50.100`–`200` on `LabNet`, authorised in Active Directory
+- Organisational unit structure `KANDEL-LAB\{Users, Computers, Groups}`, with domain users created
+- `WIN11-01` renamed, joined to the domain, leasing from DHCP, and signing in as a domain user
 
 **In progress**
 
-- Guest Additions on `DC01`; static addressing; AD DS role install and promotion
-- DHCP scope configuration on `LabNet`
+- Security groups and Group Policy Objects
+- Guest Additions on `DC01`
 
 **Planned**
 
-- Organisational unit structure, users, groups and Group Policy Objects
-- Domain join for `WIN11-01`
 - Entra ID join and Intune enrolment for the physical endpoint
 - A ticketing system with populated ticket history and knowledge-base articles
 - A SIEM, with simulated attacks run strictly inside the lab
