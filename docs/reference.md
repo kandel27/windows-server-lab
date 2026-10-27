@@ -14,7 +14,7 @@ Names, addresses, specifications and dates.
 | Domain (FQDN) | `kandel-lab.internal` |
 | NetBIOS name | `KANDEL-LAB` |
 | Domain fixed | Before promotion, deliberately |
-| Forest / domain functional level | To record after promotion |
+| Forest / domain functional level | Windows Server 2025 |
 
 ## Network
 
@@ -26,7 +26,9 @@ Names, addresses, specifications and dates.
 | Subnet mask | `255.255.255.0` |
 | DNS server | `192.168.50.10` — `DC01`, pointing at itself |
 | Default gateway | None. `LabNet` is isolated |
-| DHCP scope | `192.168.50.100` – `192.168.50.200` |
+| DHCP scope | `192.168.50.100` – `192.168.50.200`, named `LabNet` |
+| DHCP server | `DC01`, authorised in Active Directory, bound to `LabNet` only |
+| DHCP options | DNS `192.168.50.10`, parent domain `kandel-lab.internal`, no router option |
 | Internet access | `DC01` adapter 2, NAT, for updates and activation only |
 
 ## Machines
@@ -36,7 +38,7 @@ Names, addresses, specifications and dates.
 | Hypervisor host | Physical laptop | VirtualBox host | Home Wi-Fi, DHCP |
 | Managed endpoint | Physical desktop | Entra ID joined, Intune enrolled | Home Wi-Fi, DHCP |
 | `DC01` | VM — Windows Server 2025 | AD DS, DNS, DHCP | `192.168.50.10`, static |
-| `WIN11-01` | VM — Windows 11 Enterprise | Domain-joined client | DHCP from `DC01` |
+| `WIN11-01` | VM — Windows 11 Enterprise | Domain-joined client | `192.168.50.100`, DHCP from `DC01` |
 
 ## `DC01` virtual machine specification
 
@@ -60,6 +62,16 @@ watermark. Recording the dates here stops a lab expiring part-way through a proj
 |---|---|---|
 | `DC01` — Windows Server 2025 Evaluation | 180 days | March 2027 |
 | `WIN11-01` — Windows 11 Enterprise Evaluation | 90 days | December 2026 |
+
+## Directory structure
+
+| Item | Value |
+|---|---|
+| Top-level OU | `KANDEL-LAB` |
+| Child OUs | `Users`, `Computers`, `Groups` |
+| Computer objects | `WIN11-01` moved from the default Computers container into `KANDEL-LAB\Computers` |
+| User accounts | Created in `KANDEL-LAB\Users` rather than the default Users container, so Group Policy can be linked |
+| Group Policy | Default Domain Controllers Policy left at its defaults. Ordinary users sign in at `WIN11-01`, not at `DC01` |
 
 ---
 

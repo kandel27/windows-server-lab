@@ -18,7 +18,7 @@ until now; this repository publishes it and is updated as the build continues.
 
 | Path | What it holds |
 |---|---|
-| [`docs/build-log.md`](docs/build-log.md) | Session-by-session log, including three documented faults and their root causes |
+| [`docs/build-log.md`](docs/build-log.md) | Session-by-session log: every fault, its evidence, root cause and verified fix |
 | [`docs/reference.md`](docs/reference.md) | Names, addresses, virtual machine specifications and evaluation expiry dates |
 | [`diagrams/`](diagrams/) | Network design, drawn in draw.io |
 | `screenshots/` | Milestone screenshots |
