@@ -69,9 +69,23 @@ watermark. Recording the dates here stops a lab expiring part-way through a proj
 |---|---|
 | Top-level OU | `KANDEL-LAB` |
 | Child OUs | `Users`, `Computers`, `Groups` |
+| Department OUs | `Management`, `Office`, `Workshop`, `IT`, all under `KANDEL-LAB\Users` |
 | Computer objects | `WIN11-01` moved from the default Computers container into `KANDEL-LAB\Computers` |
-| User accounts | Created in `KANDEL-LAB\Users` rather than the default Users container, so Group Policy can be linked |
+| User accounts | Created in the department OU they belong to, not the default Users container, so Group Policy can be linked |
+| User naming | First initial plus surname. Collisions resolved by adding the second letter of the first name |
+| Group naming | Company prefix `GK-`. Global scope, Security type. OUs are not prefixed, because their path already identifies them |
+| Groups | `GK-Management`, `GK-Office`, `GK-Workshop`, `GK-IT`, `GK-All-Staff` |
 | Group Policy | Default Domain Controllers Policy left at its defaults. Ordinary users sign in at `WIN11-01`, not at `DC01` |
+
+## Group Policy Objects
+
+| GPO | Linked to | Purpose |
+|---|---|---|
+| `GK - Password and Lockout Policy` | Domain root | 12 character minimum, complexity on, 90 day maximum age. Lockout after 5 attempts for 15 minutes. Must be linked at the domain root to take effect |
+| `GK - Workshop Lockdown` | `KANDEL-LAB\Users\Workshop` | Screen saver on with a 300 second timeout and password, Control Panel and Settings blocked. Contains a Computer Configuration USB restriction that does not apply yet, because the OU holds users and not computers |
+
+Scenario: the directory models **Kandel Marine Services**, a fictional small Hobart business, so
+that every policy has a reason behind it rather than being set at random.
 
 ---
 
