@@ -124,7 +124,7 @@ is synced.
 - One build-log entry per session: what was done, what broke, how it was resolved, what comes next.
 - Every fault recorded as symptom, diagnosis, root cause, fix, and what it taught.
 - Explanations written in my own words rather than copied, so the reasoning can be defended out loud.
-- Screenshots captured at each milestone.
+- Command output recorded verbatim, so the evidence in the log is what the machine actually printed.
 
 **No credentials appear anywhere in this repository.** Passwords live in a password manager only.
 The reference sheet records what things are called and where they are, never how to sign in to them.
