@@ -100,11 +100,16 @@ is synced.
 - DHCP scope `192.168.50.100`–`200` on `LabNet`, authorised in Active Directory
 - Organisational unit structure `KANDEL-LAB\{Users, Computers, Groups}`, with domain users created
 - `WIN11-01` renamed, joined to the domain, leasing from DHCP, and signing in as a domain user
+- Department OUs, users and prefixed security groups, modelled on a small business
+- Domain password and lockout policy, tested through to lockout and recovery
+- A Workshop lockdown GPO, applied and verified with `gpresult`
+- Guest Additions on both machines
 
 **In progress**
 
-- Security groups and Group Policy Objects
-- Guest Additions on `DC01`
+- Loopback processing, so machine-based restrictions follow the computer rather than the user
+- A file share on `DC01`, for drive mapping and a company wallpaper
+- Security filtering, to exempt IT staff from the user restrictions
 
 **Planned**
 
